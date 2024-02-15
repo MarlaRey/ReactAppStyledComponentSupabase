@@ -11,12 +11,12 @@ function App() {
 
   return (
     <>
-      <Container maxwidth= "1200">
+      <Container $maxwidth= "1200">
         <Grid>
-        <Header area="header"/>
-        <NavBar area= "navbar"/>
-        <Main area="main"/>
-        <Footer area= "footer"/>
+        <Header />
+        <NavBar />
+        <Main />
+        <Footer/>
         </Grid>
       </Container>
       
