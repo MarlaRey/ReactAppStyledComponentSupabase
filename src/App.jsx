@@ -5,16 +5,19 @@ import { Header } from './Components/Header'
 import { Main } from './Components/Main'
 import { Footer} from './Components/Footer'
 import { NavBar } from './Components/NavBar'
+import { Grid } from './Components/Grid'
 
 function App() {
 
   return (
     <>
-      <Container maxwidth="1024">
-        <Header/>
-        <NavBar/>
-        <Main/>
-        <Footer/>
+      <Container maxwidth= "1200">
+        <Grid>
+        <Header area="header"/>
+        <NavBar area= "navbar"/>
+        <Main area="main"/>
+        <Footer area= "footer"/>
+        </Grid>
       </Container>
       
     </>
