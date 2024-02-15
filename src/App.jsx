@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import './App.scss'
+import { Container } from './StyledComponents/Container.style'
 
 function App() {
 
   return (
     <>
-      <h1>hello world</h1>
+      <Container maxwidth="1024"></Container>
+      
     </>
   )
 }
