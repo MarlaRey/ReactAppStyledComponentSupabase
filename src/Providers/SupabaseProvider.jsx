@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
-import { createContext, useState, useEffect, } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 
-const SupabaseContext = createContext ()
+const SupabaseContext = createContext()
 
 export const SupabaseProvider = ({children}) => {
     const [supabase, setSupabase] = useState(null)
@@ -11,6 +11,7 @@ export const SupabaseProvider = ({children}) => {
 
     useEffect ( () => {
         setSupabase (createClient (supabaseUrl, supabaseKey))
+        console.log(123);
     }, 
     //dependency array: (hvis denne ændrer sig, skal den rendere på ny)
     [supabaseKey]
