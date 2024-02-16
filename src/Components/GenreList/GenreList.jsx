@@ -1,33 +1,43 @@
-import { useEffect, useState } from "react"
-import { useSupabase } from "../../Providers/SupabaseProvider"
+import { useEffect, useState } from "react";
+import { useSupabase } from "../../Providers/SupabaseProvider";
+import { GenreListContainer } from "./GenreList.style";
+import { NavLink } from "react-router-dom";
 
 export const GenreList = () => {
-    const [genreData, setGenreData] = useState([])
-    const { supabase } = useSupabase()
-    console.log(supabase);
-
+    const [genreData, setGenreData] = useState([]);
+    const { supabase } = useSupabase();
+    
     const getData = async () => {
         if (supabase) {
-
             const { data, error } = await supabase
-
                 .from('genres')
                 .select('*')
-                .order('title')
-                console.log(data);
+                .order('title');
+            
             if (error) {
-                console.error("fejl i kald af genre", error);
+                console.error("Fejl i kald af genre", error);
             } else {
-                console.log(data);
-                setGenreData(data)
+                setGenreData(data);
             }
         }
-    }
+    };
+
     useEffect(() => {
-        getData()
-    }, [setGenreData, supabase])
+        getData();
+    }, [setGenreData, supabase]);
 
     return (
-        <div>generelist</div>
-    )
-}
+        <GenreListContainer>
+            <ul>
+            {genreData && genreData.map(item => {
+                return (
+                    <li key={item.id}>
+                        <NavLink to={item.slug}>{item.title}</NavLink>
+                        
+                    </li>
+                );
+            })}
+            </ul>
+        </GenreListContainer>
+    );
+};

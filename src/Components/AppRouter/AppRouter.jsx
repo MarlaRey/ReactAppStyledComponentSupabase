@@ -7,6 +7,7 @@ export const AppRouter = () => {
         <Routes>
             <Route index element={<HomePage />} />
             <Route path="/posters" element={<PosterPage />} /> {/* Tilføjet det manglende < før PosterPage */}
+
         </Routes>
     );
 };

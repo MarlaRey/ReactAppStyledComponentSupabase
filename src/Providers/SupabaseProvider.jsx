@@ -11,7 +11,6 @@ export const SupabaseProvider = ({children}) => {
 
     useEffect ( () => {
         setSupabase (createClient (supabaseUrl, supabaseKey))
-        console.log(123);
     }, 
     //dependency array: (hvis denne ændrer sig, skal den rendere på ny)
     [supabaseKey]
