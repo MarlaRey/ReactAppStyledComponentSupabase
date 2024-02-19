@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { PosterListContainer } from "./PosterList.style"
 import { useEffect, useState } from "react";
 import { useSupabase } from "../../Providers/SupabaseProvider";
+import { PosterItem } from "../../Components/PosterItem/PosterItem";
 
 export const PosterList = () => {
     const { genreSlug } = useParams();
@@ -29,16 +30,16 @@ export const PosterList = () => {
 
     return (
         <PosterListContainer>
-            {posterData && 
-            posterData.map((item) => {
-                return (
-                    <div key={item.id}>
-                        <h2>{item.name}</h2>
-                        <img src={item.image} alt={item.name} />
-
-                    </div>
-                )
-            })}
+      {posterData &&
+        posterData.map((item) => (
+          <PosterItem
+            key={item.id}
+            name={item.name}
+            price={item.price}
+            image={item.image}
+            slug={item.slug}
+          />
+        ))}
         </PosterListContainer>
     )
 }
